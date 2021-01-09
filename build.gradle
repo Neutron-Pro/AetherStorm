@@ -2,14 +2,32 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+group 'fr.neutronstars'
 version '1.0-SNAPSHOT'
 
 repositories {
     jcenter()
 }
+
 dependencies {
     compile 'net.dv8tion:JDA:4.2.0_168'
     compile 'org.slf4j:slf4j-simple:1.7.25'
     compile 'org.json:json:20201115'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    doFirst {
+        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    }
+}
+
+test {
+    systemProperty "file.encoding", "utf-8"
 }
