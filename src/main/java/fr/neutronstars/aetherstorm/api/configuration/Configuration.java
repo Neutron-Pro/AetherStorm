@@ -13,14 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package fr.neutronstars.aetherstorm.api;
+package fr.neutronstars.aetherstorm.api.configuration;
 
-import fr.neutronstars.aetherstorm.api.configuration.Configuration;
-import org.slf4j.Logger;
+import java.util.Optional;
 
-public interface AetherStorm
+public interface Configuration
 {
-    Logger getLogger();
+    <T> Optional<T> get(String path);
+    <T> T get(String path, T def);
 
-    Configuration getConfiguration();
+    default <T> T getOrSet(String path, T def)
+    {
+        return this.getOrSet(path, def, false);
+    }
+    <T> T getOrSet(String path, T def, boolean save);
+
+    default void set(String path, Object value)
+    {
+        this.set(path, value, false);
+    }
+    void set(String path, Object value, boolean save);
+
+    void save();
 }
