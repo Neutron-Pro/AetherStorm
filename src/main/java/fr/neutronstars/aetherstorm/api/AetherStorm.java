@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 NeutronStars
+ * Copyright 2021 NeutronStars
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package fr.neutronstars.aetherstorm.api;
 
 import fr.neutronstars.aetherstorm.api.configuration.Configuration;
+import net.dv8tion.jda.api.sharding.ShardManager;
 import org.slf4j.Logger;
 
 public interface AetherStorm
@@ -23,4 +24,10 @@ public interface AetherStorm
     Logger getLogger();
 
     Configuration getConfiguration();
+
+    ShardManager getShardManager();
+
+    String getJDAVersion();
+
+    String getAetherStormVersion();
 }
