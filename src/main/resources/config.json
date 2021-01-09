@@ -3,5 +3,11 @@
   "shards": 1,
   "owners": [ "Insert Your Discord Identifier Here !" ],
   "prefix": "Insert The Default Prefix of Bot Here",
-  "levenshteinDistance": null
+  "levenshteinDistance": null,
+
+  "database.url": "127.0.0.1",
+  "database.port": "3306",
+  "database.database": "aetherstorm",
+  "database.user": "root",
+  "database.password": ""
 }

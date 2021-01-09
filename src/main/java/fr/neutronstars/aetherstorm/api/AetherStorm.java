@@ -18,6 +18,7 @@ package fr.neutronstars.aetherstorm.api;
 import fr.neutronstars.aetherstorm.api.cache.Entities;
 import fr.neutronstars.aetherstorm.api.command.Commands;
 import fr.neutronstars.aetherstorm.api.configuration.Configuration;
+import fr.neutronstars.aetherstorm.api.database.Database;
 import fr.neutronstars.aetherstorm.api.entity.Guild;
 import fr.neutronstars.aetherstorm.api.entity.Player;
 import fr.neutronstars.aetherstorm.core.text.LevenshteinDistance;
@@ -38,6 +39,8 @@ public interface AetherStorm
     Entities<Guild, net.dv8tion.jda.api.entities.Guild> getGuilds();
 
     Entities<Player, User> getPlayers();
+
+    Database getDatabase();
 
     String getJDAVersion();
 
