@@ -13,27 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package fr.neutronstars.aetherstorm.api;
+package fr.neutronstars.aetherstorm.api.command;
 
-import fr.neutronstars.aetherstorm.api.command.Commands;
-import fr.neutronstars.aetherstorm.api.configuration.Configuration;
-import fr.neutronstars.aetherstorm.core.text.LevenshteinDistance;
-import net.dv8tion.jda.api.sharding.ShardManager;
-import org.slf4j.Logger;
+import fr.neutronstars.aetherstorm.api.entity.Guild;
+import fr.neutronstars.aetherstorm.api.entity.Player;
+import net.dv8tion.jda.api.entities.Message;
 
-public interface AetherStorm
+public interface Command
 {
-    Logger getLogger();
+    String getName();
 
-    Configuration getConfiguration();
+    default boolean executeToGuild(Guild guild, Player player, Message message, String... args)
+    {
+        return false;
+    }
 
-    ShardManager getShardManager();
-
-    Commands getCommands();
-
-    String getJDAVersion();
-
-    String getAetherStormVersion();
-
-    LevenshteinDistance getLevenshteinDistance();
+    default boolean executeToPrivate(Player player, Message message, String... args)
+    {
+        return false;
+    }
 }

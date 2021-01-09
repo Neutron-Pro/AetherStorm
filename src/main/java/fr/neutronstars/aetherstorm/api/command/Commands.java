@@ -13,27 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package fr.neutronstars.aetherstorm.api;
+package fr.neutronstars.aetherstorm.api.command;
 
-import fr.neutronstars.aetherstorm.api.command.Commands;
-import fr.neutronstars.aetherstorm.api.configuration.Configuration;
-import fr.neutronstars.aetherstorm.core.text.LevenshteinDistance;
-import net.dv8tion.jda.api.sharding.ShardManager;
-import org.slf4j.Logger;
+import java.util.List;
+import java.util.Optional;
 
-public interface AetherStorm
+public interface Commands
 {
-    Logger getLogger();
+    void register(Command command);
 
-    Configuration getConfiguration();
+    List<Command> gets();
 
-    ShardManager getShardManager();
+    Optional<Command> get(String name);
 
-    Commands getCommands();
-
-    String getJDAVersion();
-
-    String getAetherStormVersion();
-
-    LevenshteinDistance getLevenshteinDistance();
+    String getPrefix();
 }

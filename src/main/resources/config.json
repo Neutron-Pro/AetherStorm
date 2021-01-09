@@ -2,5 +2,6 @@
   "token": "Insert Your Token Here !",
   "shards": 1,
   "owners": [ "Insert Your Discord Identifier Here !" ],
-  "prefix": "Insert The Default Prefix of Bot Here"
+  "prefix": "Insert The Default Prefix of Bot Here",
+  "levenshteinDistance": null
 }
