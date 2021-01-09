@@ -15,9 +15,13 @@
  */
 package fr.neutronstars.aetherstorm.api;
 
+import fr.neutronstars.aetherstorm.api.cache.Entities;
 import fr.neutronstars.aetherstorm.api.command.Commands;
 import fr.neutronstars.aetherstorm.api.configuration.Configuration;
+import fr.neutronstars.aetherstorm.api.entity.Guild;
+import fr.neutronstars.aetherstorm.api.entity.Player;
 import fr.neutronstars.aetherstorm.core.text.LevenshteinDistance;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.sharding.ShardManager;
 import org.slf4j.Logger;
 
@@ -30,6 +34,10 @@ public interface AetherStorm
     ShardManager getShardManager();
 
     Commands getCommands();
+
+    Entities<Guild, net.dv8tion.jda.api.entities.Guild> getGuilds();
+
+    Entities<Player, User> getPlayers();
 
     String getJDAVersion();
 
