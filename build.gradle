@@ -24,7 +24,13 @@ tasks.withType(JavaCompile) {
 
 jar {
     doFirst {
-        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+        from {
+            (configurations.compile.findAll { !it.path.endsWith(".pom") })
+                                   .collect { it.isDirectory() ? it : zipTree(it) }
+        }
+    }
+    manifest {
+        attributes 'Main-Class': 'fr.neutronstars.aetherstorm.core.AetherStormStart'
     }
 }
 
