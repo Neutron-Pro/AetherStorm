@@ -16,6 +16,7 @@ dependencies {
     compile 'net.dv8tion:JDA:4.2.0_168'
     compile 'org.slf4j:slf4j-simple:1.7.25'
     compile 'org.json:json:20201115'
+    compile 'mysql:mysql-connector-java:8.0.22'
 }
 
 tasks.withType(JavaCompile) {
