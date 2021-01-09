@@ -15,21 +15,12 @@
  */
 package fr.neutronstars.aetherstorm.api.database;
 
-import org.slf4j.Logger;
-
+import java.util.List;
 import java.util.Optional;
 
-public interface Database<T>
+public interface Repository<T>
 {
-    Logger getLogger();
+    List<T> gets();
 
-    Optional<T> execute(String query, Object... objects);
-
-    void update(String query, Object... objects);
-
-    void connect();
-
-    void disconnect();
-
-    void close(T t);
+    Optional<T> getById(long identifier);
 }
