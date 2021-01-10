@@ -21,6 +21,7 @@ import fr.neutronstars.aetherstorm.api.configuration.Configuration;
 import fr.neutronstars.aetherstorm.api.database.Database;
 import fr.neutronstars.aetherstorm.api.entity.Guild;
 import fr.neutronstars.aetherstorm.api.entity.Player;
+import fr.neutronstars.aetherstorm.api.language.Languages;
 import fr.neutronstars.aetherstorm.core.text.LevenshteinDistance;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.sharding.ShardManager;
@@ -35,6 +36,8 @@ public interface AetherStorm
     ShardManager getShardManager();
 
     Commands getCommands();
+
+    Languages getLanguages();
 
     Entities<Guild, net.dv8tion.jda.api.entities.Guild> getGuilds();
 
