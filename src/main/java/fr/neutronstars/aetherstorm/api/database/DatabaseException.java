@@ -15,21 +15,30 @@
  */
 package fr.neutronstars.aetherstorm.api.database;
 
-import org.slf4j.Logger;
-
-import java.util.Optional;
-
-public interface Database<T>
+public class DatabaseException extends Exception
 {
-    Logger getLogger();
+    public DatabaseException()
+    {
+        super();
+    }
 
-    Optional<T> execute(String query, Object... objects);
+    public DatabaseException(String message)
+    {
+        super(message);
+    }
 
-    void update(String query, Object... objects);
+    public DatabaseException(Throwable throwable)
+    {
+        super(throwable);
+    }
 
-    void connect() throws DatabaseException;
+    public DatabaseException(String message, Throwable throwable)
+    {
+        super(message, throwable);
+    }
 
-    void disconnect() throws DatabaseException;
-
-    void close(T t);
+    public DatabaseException(String message, Throwable throwable, boolean enableSuppression, boolean writableStackTrace)
+    {
+        super(message, throwable, enableSuppression, writableStackTrace);
+    }
 }
